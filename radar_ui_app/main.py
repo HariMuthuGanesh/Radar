@@ -23,7 +23,7 @@ class CSVLogger:
     """
     Handles saving session data to CSV files.
     """
-    def __init__(self, directory="saved_files"):
+    def __init__(self, directory="radar/radar_ui_app/saved_files"):
         self.directory = directory
         if not os.path.exists(self.directory):
             os.makedirs(self.directory)
@@ -147,6 +147,7 @@ class SerialManager(QObject):
     data_ready = Signal(bytes)
     connection_status = Signal(bool)
 
+    # def __init__(self, config_port="COM6", data_port="COM7", config_baud=115200, data_baud=921600):
     def __init__(self, config_port="COM12", data_port="COM13", config_baud=115200, data_baud=921600):
         super().__init__()
         self.config_port = config_port
